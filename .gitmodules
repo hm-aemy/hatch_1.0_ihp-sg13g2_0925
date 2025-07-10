@@ -1,0 +1,3 @@
+[submodule "Hatch"]
+	path = Hatch
+	url = ../Hatch.git
