@@ -8,4 +8,5 @@ before_script:
 build:
   stage: build
   script:
+    - source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     - nix-shell --pure /opt/librelane --run "librelane --version"
