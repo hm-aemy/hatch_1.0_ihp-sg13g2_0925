@@ -2,11 +2,7 @@ image:
   name: ghcr.io/hm-aemy/iic-osic-tools:latest
   entrypoint: [""]
 
-before_script:
-  - sudo ./scripts/prepare-env.sh
-
 build:
   stage: build
   script:
-    - source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     - nix-shell --pure /opt/librelane --run "librelane --version"
