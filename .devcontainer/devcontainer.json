@@ -1,0 +1,8 @@
+{
+	"name": "IIC-OSIC-TOOLS",
+    "image": "docker.io/hpretl/iic-osic-tools:2025.05",
+
+    "remoteUser": "root",
+
+    "postCreateCommand": "scripts/prepare-env.sh"
+}
