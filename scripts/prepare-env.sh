@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # Install Nix
 sudo apt-get install -y curl
