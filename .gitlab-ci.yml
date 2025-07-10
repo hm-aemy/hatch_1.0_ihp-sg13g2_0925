@@ -3,7 +3,7 @@ image:
   entrypoint: [""]
 
 before_script:
-  - ./scripts/prepare-env.sh
+  - sudo ./scripts/prepare-env.sh
 
 build:
   stage: build
