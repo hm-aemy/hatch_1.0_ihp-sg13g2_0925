@@ -1,0 +1,10 @@
+stages:
+  - build
+
+before_script:
+  - ./scripts/prepare.sh
+
+build:
+  stage: build
+  script:
+    - nix-shell --pure /opt/librelane --run "librelane --version"
