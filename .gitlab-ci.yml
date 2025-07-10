@@ -2,7 +2,7 @@ stages:
   - build
 
 before_script:
-  - ./scripts/prepare.sh
+  - ./scripts/prepare-env.sh
 
 build:
   stage: build

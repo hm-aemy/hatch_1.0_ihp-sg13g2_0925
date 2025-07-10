@@ -9,3 +9,7 @@ sudo curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems
 "
 
 git clone https://github.com/librelane/librelane /opt/librelane
+
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
+nix-shell --pure /opt/librelane --run "librelane --version"
