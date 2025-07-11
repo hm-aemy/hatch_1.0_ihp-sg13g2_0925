@@ -5,4 +5,4 @@ image:
 build:
   stage: build
   script:
-    - nix-shell --pure /opt/librelane --run "librelane --version"
+    - ./build.sh
