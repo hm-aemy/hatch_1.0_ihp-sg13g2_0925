@@ -2,5 +2,7 @@
     "DESIGN_NAME": "hatch",
     "VERILOG_FILES": "dir::Hatch/src/hatch.v",
     "CLOCK_PORT": "clk",
-    "CLOCK_PERIOD": 100
+    "CLOCK_PERIOD": 100,
+
+    "USE_SLANG": true
 }
