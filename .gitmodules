@@ -1,3 +1,4 @@
 [submodule "Hatch"]
 	path = Hatch
 	url = ../Hatch.git
+	branch = croc
