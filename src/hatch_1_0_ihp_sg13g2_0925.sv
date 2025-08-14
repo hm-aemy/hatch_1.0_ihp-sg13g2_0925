@@ -153,10 +153,10 @@ module hatch_1_0_ihp_sg13g2_0925 import croc_pkg::*; #() (
     //(* dont_touch = "true" *)sg13g2_IOPadIOVss pad_vssio2();
     //(* dont_touch = "true" *)sg13g2_IOPadIOVss pad_vssio3();
 
-  croc_soc #(
+  hatch #(
     .GpioCount( GpioCount )
   )
-  i_croc_soc (
+  i_hatch (
     .clk_i          ( soc_clk_i      ),
     .rst_ni         ( soc_rst_ni     ),
     .ref_clk_i      ( soc_ref_clk_i  ),
