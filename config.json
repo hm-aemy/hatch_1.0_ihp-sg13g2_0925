@@ -183,8 +183,8 @@
     ],
     "CLOCK_PERIOD": 12.5,
     "CLOCK_PORT": "clk_i",
-    "PAD_CFG": "dir::Hatch/scripts/pad.tcl",
-    "FP_PDN_CFG": "dir::Hatch/scripts/pdn.tcl",
+    "PAD_CFG": "dir::scripts/pad.tcl",
+    "FP_PDN_CFG": "dir::scripts/pdn.tcl",
 
     "PNR_SDC_FILE": "dir::constraint.sdc",
     "SIGNOFF_SDC_FILE": "dir::constraint.sdc",
