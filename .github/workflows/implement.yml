@@ -5,17 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
         with:
-          submodules: yes
+          submodules: recursive
 
       - name: Set PDK
         run: |
-          echo "PDK_ROOT={{ github.workspace }}/pdk" >> $GITHUB_ENV
+          echo "PDK_ROOT=${{ github.workspace }}/pdk" >> $GITHUB_ENV
           echo "PDK=ihp-sg13g2" >> $GITHUB_ENV
 
       - name: Run librelane
-        uses: fossi-foundation/librelane-action@v0.1
+        uses: fossi-foundation/librelane-action@return
         with:
           branch: leo/padring
           arguments: --manual-pdk --run-tag croc_pl_60_2100 --overwrite config.json
@@ -27,8 +27,11 @@ jobs:
           path: |
             runs/
 
-jobs:
   simulate:
+    runs-on: ubuntu-latest
+    needs: implement
+
+    steps:
       - name: checkout repo
         uses: actions/checkout@v4
         with:
@@ -37,16 +40,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
-          path: simulation
+          path: runs
 
       - name: Build simulator
-        uses: fossi-foundation/verilator-action@v0.3
+        uses: fossi-foundation/verilator-action@return
         with:
           working-directory: simulation
           run: 'make build-verilator'
 
       - name: Run simulator
-        uses: fossi-foundation/verilator-action@v0.3
+        uses: fossi-foundation/verilator-action@return
         with:
           working-directory: simulation
           run: 'make sim-verilator'
