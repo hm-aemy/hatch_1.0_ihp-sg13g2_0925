@@ -16,3 +16,13 @@ build:
   artifacts:
     paths:
       - runs/
+
+simulate:
+  stage: test
+
+  needs: build
+
+  script:
+    - cd simulation
+    - make build-verilator
+    - make sim-verilator
