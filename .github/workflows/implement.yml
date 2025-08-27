@@ -19,3 +19,34 @@ jobs:
         with:
           branch: leo/padring
           arguments: --manual-pdk --run-tag croc_pl_60_2100 --overwrite config.json
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            runs/
+
+jobs:
+  simulate:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Not recursive, to avoid cloning the PDK
+      - name: Download simulator
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: simulation
+
+      - name: Build simulator
+        uses: fossi-foundation/verilator-action@v0.3
+        with:
+          working-directory: simulation
+          run: 'make build-verilator'
+
+      - name: Run simulator
+        uses: fossi-foundation/verilator-action@v0.3
+        with:
+          working-directory: simulation
+          run: 'make sim-verilator'
