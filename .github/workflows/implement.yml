@@ -1,0 +1,24 @@
+on: [push, workflow_dispatch]
+
+jobs:
+  implement:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Checkout PDK
+        run: git clone -b leo/padring https://github.com/mole99/IHP-Open-PDK.git /opt/IHP-Open-PDK
+      
+      - name: Set PDK
+        run: |
+          echo "PDK_ROOT=/opt/IHP-Open-PDK" >> $GITHUB_ENV
+          echo "PDK=ihp-sg13g2" >> $GITHUB_ENV
+
+      - name: Run librelane
+        uses: fossi-foundation/librelane-action@v0.1
+        with:
+          branch: leo/padring
+          arguments: --manual-pdk --run-tag croc_pl_60_2100 --overwrite config.json
