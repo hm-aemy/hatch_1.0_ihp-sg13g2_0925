@@ -5,3 +5,6 @@
 [submodule "pdk"]
 	path = pdk
 	url = https://github.com/mole99/IHP-Open-PDK.git
+[submodule "simulation/sg13g2-bhv"]
+	path = simulation/sg13g2-bhv
+	url = https://github.com/hm-aemy/IHP-Open-PDK-Verilator
