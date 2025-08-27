@@ -7,14 +7,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          submodules: recursive
+          submodules: yes
 
-      - name: Checkout PDK
-        run: git clone -b leo/padring https://github.com/mole99/IHP-Open-PDK.git /opt/IHP-Open-PDK
-      
       - name: Set PDK
         run: |
-          echo "PDK_ROOT=/opt/IHP-Open-PDK" >> $GITHUB_ENV
+          echo "PDK_ROOT={{ github.workspace }}/pdk" >> $GITHUB_ENV
           echo "PDK=ihp-sg13g2" >> $GITHUB_ENV
 
       - name: Run librelane

@@ -2,3 +2,6 @@
 	path = Hatch
 	url = ../Hatch.git
 	branch = croc
+[submodule "pdk"]
+	path = pdk
+	url = https://github.com/mole99/IHP-Open-PDK.git
