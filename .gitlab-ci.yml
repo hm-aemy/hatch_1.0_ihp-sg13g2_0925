@@ -20,7 +20,7 @@ build:
 simulate:
   stage: test
 
-  needs: build
+  needs: ["build"]
 
   script:
     - cd simulation
